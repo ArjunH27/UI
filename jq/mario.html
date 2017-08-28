@@ -23,9 +23,10 @@
       to { background-position: 0 0; }
       }
       #animate-area { 
-        width: 1600px; 
+        width: 2600px; 
         height: 600px; 
         background-image: url(cloud1.jpg);
+
        
         background-repeat: repeat-x;
        
@@ -73,7 +74,7 @@
   
   
 
-  <div style="background-image: url('ground.jpg'); height: 180px;width: 1600px;">
+  <div style="background-image: url('ground.jpg'); height: 180px;width: 2600px;">
     
   </div>
  
@@ -90,42 +91,46 @@
                 const of = $('.mario').offset();
                        const b=of.left;
                        if(b!=1000) 
-                   {
-                      if(b==1100)
-                       {
-                         const d = $('.mario').offset();
-                    d.top=d.top+100;
+                   		{
+                      		if(b==1100)
+                       		{
+                        		 const d = $('.mario').offset();
+                    			 d.top=d.top+100;
                   
-                      $('.mario').offset(d);
+                      			$('.mario').offset(d);
 
-                       } 
-                       if(b==1500)
-                       {
-                        location.reload();
-                       }  
-                       
-
-
+                       		} 
+                       		if(b==2500)
+                       		{
+                       			 location.reload(true);
+                       		}  
          
-              if(e.keyCode == 39) { // right
-                       console.log(e.keyCode);
-                       const a = $('.mario').offset();
-                       const b=a.left;
-                       console.log(b);
-                      a.left=a.left+100;
-                      $('.mario').offset(a);
-                }
-              }
-              else{
-                  if(e.keyCode == 38) {//up 
-                    const d = $('.mario').offset();
-                    d.top=d.top-100;
-                    d.left=d.left+100;
-                      $('.mario').offset(d);
+              				if(e.keyCode == 39) { // right
+			                       console.log(e.keyCode);
+			                       const a = $('.mario').offset();
+			                       const b=a.left;
+			                       console.log(b);
+			                      a.left=a.left+100;
+			                      $('.mario').offset(a);
+                			}
+                			if(e.keyCode == 38) { // up
+			                       console.log(e.keyCode);
+			                       const a = $('.mario').offset();
+			                       a.top=a.top-100;
+			                       $('.mario').offset(a);
+			                       setTimeout(function(){ a.top=a.top+100;$('.mario').offset(a);  }, 500);
+                      
+                			}
+             			}
+              			else{
+			                  if(e.keyCode == 38) {//up 
+				                    const d = $('.mario').offset();
+				                    d.top=d.top-100;
+				                    d.left=d.left+100;
+				                    $('.mario').offset(d);
+                  				}
 
-                  }
-
-              }
+              			}
           });
       });
     </script>

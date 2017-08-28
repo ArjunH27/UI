@@ -171,6 +171,10 @@
 					$('#c4').html("");	
 					$('#c4').html("<img src='a2.jpg' width='500px'>");
 					$('#c4').append("<button type='submit' class='btn btn-default' id='btn4'>Clear</button>");
+					
+					$('#btn4').on('click',function(){
+					$('#c4').html("");
+					});
 				})
 
 				$(".jumbotron:nth-child(4)").show();
@@ -181,6 +185,7 @@
 			
 
 		});
+
 
 	});
 

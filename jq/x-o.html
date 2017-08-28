@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Logged in!</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+     <style type="text/css">
+      
+    .unsafe{
+          height: 100px;
+          width: 100px;
+          border: 1px solid black;
+          background-color: #BBBBBB;
+          float:left;
+
+    }
+    .active-x{
+    	background-image:url('x-image.png');
+
+    }
+    .active-o{
+    	background-image:url('o-image.png');
+    }
+    </style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body style="background-image: url('joker1.jpg');">
+  
+ 	
+  <div class="col-md-3 " style="margin-top: 150px;">
+
+	    <div id="i1">
+
+	    	<div class="unsafe" id="1"></div>
+	        <div class="unsafe" id="2"></div>
+	        <div class="unsafe" id="3"></div>
+	        <div class="unsafe" id="4"></div>
+	        <div class="unsafe" id="5"></div>
+	        <div class="unsafe" id="6"></div>
+	    	<div class="unsafe" id="7"></div>
+	        <div class="unsafe" id="8"></div>
+	        <div class="unsafe" id="9"></div>
+
+
+	    </div>
+   </div>     
+
+   <button id="res" style="margin-top: 300px;margin-right:400px; background:#58D9E6;width: 100px" >Restart</button>
+    <br/><br/>
+   <div class="container">
+  		<form >
+    		<div class="form-group">
+      			<input type="text" class="form-control" id="n1" placeholder="PLAYER 1" style="width: 150px" alt="X">
+    		</div>
+    		<div class="form-group">
+      			<input type="text" class="form-control" id="n2" placeholder="PLAYER 2" style="width: 150px" alt="O">
+   			</div>
+  		</form>
+	</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+
+    			
+    			var count=1;
+    			$('#res').click(function(){
+    				location.reload();
+    			})
+
+    		$('.unsafe').click(function(){
+
+    			
+
+
+    			if((count%2)!=1)
+    			{
+    				$(this).addClass('active-o');
+    				count=count+1;	
+
+    				if( $('#1').hasClass('active-o')&&$('#2').hasClass('active-o')&&$('#3').hasClass('active-o')||
+    					$('#1').hasClass('active-o')&&$('#4').hasClass('active-o')&&$('#7').hasClass('active-o')||
+    					$('#7').hasClass('active-o')&&$('#8').hasClass('active-o')&&$('#9').hasClass('active-o')||
+    					$('#3').hasClass('active-o')&&$('#6').hasClass('active-o')&&$('#9').hasClass('active-o')||
+    					$('#3').hasClass('active-o')&&$('#5').hasClass('active-o')&&$('#7').hasClass('active-o')||
+    					$('#1').hasClass('active-o')&&$('#5').hasClass('active-o')&&$('#9').hasClass('active-o')||
+    					$('#4').hasClass('active-o')&&$('#5').hasClass('active-o')&&$('#6').hasClass('active-o')||
+    					$('#2').hasClass('active-o')&&$('#5').hasClass('active-o')&&$('#8').hasClass('active-o'))
+
+    				{
+    					alert($('#n2').val()+" WINS");
+    					location.reload();
+    				}
+
+
+    			}
+    			else
+    			{
+    				$(this).addClass('active-x');
+    				count=count+1;	
+
+    				if( $('#1').hasClass('active-x')&&$('#2').hasClass('active-x')&&$('#3').hasClass('active-x')||
+    					$('#1').hasClass('active-x')&&$('#4').hasClass('active-x')&&$('#7').hasClass('active-x')||
+    					$('#7').hasClass('active-x')&&$('#8').hasClass('active-x')&&$('#9').hasClass('active-x')||
+    					$('#3').hasClass('active-x')&&$('#6').hasClass('active-x')&&$('#9').hasClass('active-x')||
+    					$('#3').hasClass('active-x')&&$('#5').hasClass('active-x')&&$('#7').hasClass('active-x')||
+    					$('#1').hasClass('active-x')&&$('#5').hasClass('active-x')&&$('#9').hasClass('active-x')||
+    					$('#4').hasClass('active-o')&&$('#5').hasClass('active-o')&&$('#6').hasClass('active-o')||
+    					$('#2').hasClass('active-o')&&$('#5').hasClass('active-o')&&$('#8').hasClass('active-o'))
+
+    				{
+    					alert($('#n1').val()+" WINS");
+    					location.reload();
+    				}
+
+    			}
+    			if(count==10)
+    			{
+    				alert("Game is draw");
+    				location.reload();
+
+    			}
+    			
+
+
+    		})
+
+
+    	});
+
+
+
+    </script>
+  </body>
+</html>
